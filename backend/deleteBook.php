@@ -4,7 +4,7 @@
 
     $data = json_decode(file_get_contents("php://input"),true);
     
-    $sql = "DELETE from books WHERE id = ?";
+    $sql = "DELETE FROM books WHERE id = ?";
     $stmt = $conn->prepare($sql);
 
     $bookId = $data['id'];
