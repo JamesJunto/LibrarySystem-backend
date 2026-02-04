@@ -7,7 +7,7 @@
     $sql = "DELETE FROM books WHERE id = ?";
     $stmt = $conn->prepare($sql);
 
-    $bookId = $data['id'];
+    $bookId = $data['bookId'];
     $stmt->bind_param("i", $bookId);
 
     $stmt->execute();
