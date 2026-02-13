@@ -11,7 +11,11 @@ if (!$user_id) {
     exit;
 }
 
-$sql = "SELECT * FROM borrowed WHERE user_id = ?";
+$sql = "SELECT borrow_id, borrowed.book_id, books.title, books.author, books.genre, books.year
+FROM borrowed INNER JOIN books
+ON borrowed.book_id = books.id
+WHERE borrowed.user_id = ?";
+
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
