@@ -13,7 +13,7 @@ if (!$user_id) {
 
 $sql = "SELECT borrow_id, borrowed.book_id, books.title, books.author, books.genre, books.year
 FROM borrowed INNER JOIN books
-ON borrowed.book_id = books.id
+ON borrowed.book_id = books.book_id
 WHERE borrowed.user_id = ?";
 
 $stmt = $conn->prepare($sql);
