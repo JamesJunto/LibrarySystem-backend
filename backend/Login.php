@@ -17,6 +17,7 @@ if( $stmt->execute() ){
     $result = $stmt->get_result();
     if( $result->num_rows > 0){
         $row = $result->fetch_assoc();
+        session_regenerate_id(true);
         $_SESSION['user_id'] = $row['user_id'];
         echo json_encode([ "success" => true, "message" =>"Login successful", "name" => $row['username']]);
     } else {
